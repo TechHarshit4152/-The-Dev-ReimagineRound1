@@ -110,21 +110,18 @@ function HeroSectionAnim() {
         ease: "power4",
         delay: .3
     },'b')
-    if(window.innerWidth > 380) {
-        tl.to(".fresh-text-anim", {
-            width: "100px",
-            duration: 2.5,
-            ease: "power4",
-            delay: -.8
-        },'b')
-    } else {
-        tl.to(".fresh-text-anim", {
-            width: "180px",
-            duration: 2.5,
-            ease: "power4",
-            delay: -.8
-        },'b')
-    }
+    tl.to("#hero-text-380", {
+        width: "100px",
+        duration: 2.5,
+        ease: "power4",
+        delay: -.8
+    },'b')
+    tl.to(".fresh-text-anim", {
+        width: "180px",
+        duration: 2.5,
+        ease: "power4",
+        delay: -.8
+    },'b')
     
     tl.from(".PNG", {
         scale: 0,
@@ -178,7 +175,7 @@ function RightScrollPinAnim() {
     })
     
     imgDiv.forEach(function(elem) {
-        console.log(elem.childNodes)
+        // console.log(elem.childNodes)
         elem.addEventListener("mouseenter", function() {
             gsap.to(elem.childNodes[1], {
                 scale: 1,
@@ -197,6 +194,97 @@ function RightScrollPinAnim() {
                 y: dets.y - elem.getBoundingClientRect().y-100
             })
         })
+    })
+}
+
+function TeamDescAnim() {
+    var TeamDesc = document.querySelector(".Team-Desc")
+    var teamBox1 = document.querySelector(".team-box1")
+    var teamBox2 = document.querySelector(".team-box2")
+    var teamBox3 = document.querySelector(".team-box3")
+
+
+    gsap.to(".team-box1 h1", {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        scrollTrigger: {
+            trigger: teamBox1,
+            scroller: "body",
+            start: "top 0",
+            end: "bottom 0"
+        },
+        ease: "power2"
+
+    })
+
+    gsap.to(".team-box2 h1", {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        scrollTrigger: {
+            trigger: teamBox2,
+            scroller: "body",
+            start: "top 0",
+            end: "bottom 0"
+        },
+        ease: "power2"
+
+    },'b')
+
+    gsap.to(".team-box3 h1", {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        scrollTrigger: {
+            trigger: teamBox3,
+            scroller: "body",
+            start: "top 0",
+            end: "bottom 0"
+        },
+        ease: "power2"
+    })
+
+    gsap.to(".team-box1 h3", {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        scrollTrigger: {
+            trigger: teamBox1,
+            scroller: "body",
+            start: "top 0",
+            end: "bottom 0"
+        },
+        delay: .15,
+        ease: "power2"
+    })
+
+    gsap.to(".team-box2 h3", {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        scrollTrigger: {
+            trigger: teamBox2,
+            scroller: "body",
+            start: "top 0",
+            end: "bottom 0"
+        },
+        delay: .15,
+        ease: "power2"
+    },'b')
+
+    gsap.to(".team-box3 h3", {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        scrollTrigger: {
+            trigger: teamBox3,
+            scroller: "body",
+            start: "top 0",
+            end: "bottom 0"
+        },
+        delay: .15,
+        ease: "power2"
     })
 }
 
@@ -299,6 +387,7 @@ function loco(){
 NavAnim()
 HeroSectionAnim()
 RightScrollPinAnim()
+TeamDescAnim()
 FooterPageAnim()
 DownloadAppBtnAnim()
 // DisableContextMenu()
